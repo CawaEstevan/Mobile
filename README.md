@@ -1,1 +1,1 @@
-# Mobile
+npx expo start --tunnel
