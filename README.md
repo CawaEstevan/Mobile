@@ -1,7 +1,11 @@
-sudo apt update 
+
+
+
+sudo apt update
 sudo apt install -y nodejs npm
 npm install --global expo-cli
-npx create-expo-app ex01 --template blank
-npx expo start --tunnel
+npx create-expo-app projeto --template  blank@sdk-54
 
-app.js principal
+cd projeto
+npx expo install react-dom react-native-web
+npx expo start --tunnel
