@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { 
-  StyleSheet, 
-  Text, 
-  View, 
-  Modal, 
-  TouchableOpacity 
+import {
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  TouchableOpacity
 } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -23,9 +23,9 @@ const CustomModalScreen = ({ animation, themeColor }) => {
       <Text style={[styles.headerText, { color: themeColor }]}>
         Modo: {animation.toUpperCase()}
       </Text>
-      
-      <TouchableOpacity 
-        style={[styles.mainButton, { backgroundColor: themeColor }]} 
+
+      <TouchableOpacity
+        style={[styles.mainButton, { backgroundColor: themeColor }]}
         onPress={() => setVisible(true)}
       >
         <Text style={styles.buttonText}>TESTAR {animation.toUpperCase()}</Text>
@@ -38,25 +38,25 @@ const CustomModalScreen = ({ animation, themeColor }) => {
         onRequestClose={() => setVisible(false)}
       >
         {/* Backdrop: Fechar ao tocar fora */}
-        <TouchableOpacity 
-          style={styles.modalOverlay} 
-          activeOpacity={1} 
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
           onPressOut={() => setVisible(false)}
         >
           {/* Card do Modal */}
           <View style={styles.modalCard}>
             <View style={[styles.colorIndicator, { backgroundColor: themeColor }]} />
-            
+
             <Text style={styles.modalTitle}>Animação {animation}</Text>
-            
+
             <Text style={styles.modalBody}>
               {animation === 'slide' && "Perceba como eu subi suavemente do fundo da tela."}
               {animation === 'fade' && "Perceba como eu surgi alterando a opacidade (transparência)."}
               {animation === 'none' && "Eu apareci instantaneamente, sem transição suave."}
             </Text>
-            
-            <TouchableOpacity 
-              style={[styles.closeButton]} 
+
+            <TouchableOpacity
+              style={[styles.closeButton]}
               onPress={() => setVisible(false)}
             >
               <Text style={styles.closeButtonText}>FECHAR</Text>
@@ -74,8 +74,8 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <Tab.Navigator 
-          screenOptions={{ 
+        <Tab.Navigator
+          screenOptions={{
             headerShown: false,
             tabBarLabelStyle: { fontSize: 12, fontWeight: 'bold' },
             tabBarActiveTintColor: '#000',
@@ -89,11 +89,11 @@ export default function App() {
           <Tab.Screen name="SLIDE">
             {() => <CustomModalScreen animation="slide" themeColor="#2196F3" />}
           </Tab.Screen>
-          
+
           <Tab.Screen name="FADE">
             {() => <CustomModalScreen animation="fade" themeColor="#4CAF50" />}
           </Tab.Screen>
-          
+
           <Tab.Screen name="NONE">
             {() => <CustomModalScreen animation="none" themeColor="#FF9800" />}
           </Tab.Screen>
