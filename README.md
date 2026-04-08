@@ -29,3 +29,7 @@ cd ex01
 npx expo install @react-navigation/native @react-navigation/drawer
 npx expo install react-native-screens react-native-safe-area-context
 npx expo install react-native-gesture-handler
+
+
+# gps
+
