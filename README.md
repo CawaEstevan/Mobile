@@ -32,4 +32,4 @@ npx expo install react-native-gesture-handler
 
 
 # gps
-
+# a
