@@ -4,11 +4,11 @@
 Implementar registro de entrada e saída de itens com atualização atômica da quantidade do produto via transação Firestore. Listar histórico de movimentações por produto.
 
 ## 2. Requisitos técnicos
-- **Banco:** Firestore (coleções `products` e `movements`).
-- **Linguagem:** TypeScript.
-- **Framework:** React Native.
-- **Padrão:** Serviço isolado, transações com `runTransaction`.
-- **Dependência:** Módulo de Autenticação e módulo de Produtos.
+- Banco: Firestore (coleções `products` e `movements`).
+- Linguagem: TypeScript.
+- Framework: React Native.
+- Padrão: Serviço isolado, transações com `runTransaction`.
+- Dependência: Módulo de Autenticação e módulo de Produtos.
 
 ## 3. Contrato da API consumido
 Conforme `04_contratos_de_api.md`, seções 4.3.1 a 4.3.3.
@@ -16,11 +16,11 @@ Conforme `04_contratos_de_api.md`, seções 4.3.1 a 4.3.3.
 Operações: `listMovements(productId)`, `addEntry(productId, amount, reason)`, `addExit(productId, amount, reason)`.
 
 ## 4. O que deve ser gerado
-- **movementService.ts:** Funções de listagem, entrada e saída com transação.
-- **useMovements.ts:** Hook para histórico de movimentações.
-- **useStockMovement.ts:** Hook para registrar entrada/saída com feedback.
-- **types/movement.ts:** Interface `Movement` conforme contrato.
-- **Validações:** amount > 0, reason não vazio, estoque suficiente para saída.
+- movementService.ts: Funções de listagem, entrada e saída com transação.
+- useMovements.ts: Hook para histórico de movimentações.
+- useStockMovement.ts: Hook para registrar entrada/saída com feedback.
+- types/movement.ts: Interface `Movement` conforme contrato.
+- Validações: amount > 0, reason não vazio, estoque suficiente para saída.
 
 ## 5. Testes obrigatórios
 - Teste unitário de cada função mockando Firestore.

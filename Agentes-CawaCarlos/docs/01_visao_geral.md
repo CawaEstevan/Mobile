@@ -7,17 +7,17 @@ Desenvolver um aplicativo mobile simples de controle de estoque, que permita cad
 Pequenos negócios ou almoxarifados perdem vendas ou atrasam operações por não saberem que um produto está acabando. Este sistema oferece uma visão rápida do estoque atual e avisa ativamente quando é hora de repor.
 
 ## 3. Atores envolvidos
-- **Operador de estoque:** único perfil. Cadastra produtos, registra movimentações e visualiza alertas.
-- **Administrador do Firebase:** gerencia o projeto no console Firebase (fora do app).
+- Operador de estoque: único perfil. Cadastra produtos, registra movimentações e visualiza alertas.
+- Administrador do Firebase: gerencia o projeto no console Firebase (fora do app).
 
 ## 4. Escopo inicial, dentro e fora
-**Dentro:**
+Dentro:
 - Cadastro de produtos com nome, SKU, quantidade atual e quantidade mínima.
 - Registro de entrada e saída de itens, com data e motivo.
 - Tela de listagem de produtos com destaque visual para itens em baixo estoque.
 - Autenticação simples por e-mail/senha usando Firebase Auth.
 
-**Fora desta fase:**
+Fora desta fase:
 - Múltiplos almoxarifados ou filiais.
 - Controle de lotes, validade, fornecedores.
 - Notificações push.
@@ -25,11 +25,11 @@ Pequenos negócios ou almoxarifados perdem vendas ou atrasam operações por nã
 - Integração com sistemas de venda.
 
 ## 5. Restrições técnicas
-- **Front-end:** React Native com TypeScript.
-- **Backend como serviço:** Firebase (Firestore para dados, Authentication para login).
-- **Plataforma inicial:** Android e iOS (via React Native).
-- **Ambiente de desenvolvimento:** VS Code, Expo ou React Native CLI (a decidir pelo Agente Back-end/Front-end, sem preferência do Arquiteto).
-- **Sem servidor próprio:** toda lógica de negócio reside no cliente, respeitando regras de segurança do Firestore.
+- Front-end: React Native com TypeScript.
+- Backend como serviço: Firebase (Firestore para dados, Authentication para login).
+- Plataforma inicial: Android e iOS (via React Native).
+- Ambiente de desenvolvimento: VS Code, Expo ou React Native CLI (a decidir pelo Agente Back-end/Front-end, sem preferência do Arquiteto).
+- Sem servidor próprio: toda lógica de negócio reside no cliente, respeitando regras de segurança do Firestore.
 
 ## 6. Premissas
 - O app é monousuário por dispositivo, mas os dados são compartilhados entre todos os operadores via Firestore (leitura/escrita compartilhada).

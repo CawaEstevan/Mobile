@@ -18,7 +18,7 @@
 
 ## 3. Pendências
 
-- **DIV-01** | PENDENTE | Arquiteto | Tipo de alerta | Resolvido: alerta visual apenas.
+- DIV-01 | PENDENTE | Arquiteto | Tipo de alerta | Resolvido: alerta visual apenas.
 
 ## 4. Decisões técnicas
 

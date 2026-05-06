@@ -7,10 +7,10 @@ Tela de detalhes do produto com histórico de movimentações. Botões para regi
 Seções 4.3.1 a 4.3.3 do `04_contratos_de_api.md` e módulo back-end de Movimentações.
 
 ## 3. O que deve ser gerado
-- **MovementHistoryScreen.tsx:** Lista de movimentações do produto.
-- **MovementFormModal.tsx:** Modal para registrar entrada/saída.
-- **Componentes:** MovementItem, Badge (entrada/saída).
-- **Integração:** Hooks `useMovements`, `useStockMovement`.
+- MovementHistoryScreen.tsx: Lista de movimentações do produto.
+- MovementFormModal.tsx: Modal para registrar entrada/saída.
+- Componentes: MovementItem, Badge (entrada/saída).
+- Integração: Hooks `useMovements`, `useStockMovement`.
 
 ## 4. Experiência esperada
 - Histórico mostra data, tipo, quantidade e motivo.

@@ -11,9 +11,9 @@ Definir a estratégia de verificação para cada etapa do projeto, garantindo qu
 ## 3. Testes de back-end
 
 ### 3.1 Testes unitários (obrigatórios por módulo)
-- **Autenticação:** login, logout, onAuthChange com mocks do Firebase.
-- **Produtos:** CRUD completo, validações de nome, quantidade, exclusão com movimentações.
-- **Movimentações:** entrada, saída, validação de estoque, motivo, transação.
+- Autenticação: login, logout, onAuthChange com mocks do Firebase.
+- Produtos: CRUD completo, validações de nome, quantidade, exclusão com movimentações.
+- Movimentações: entrada, saída, validação de estoque, motivo, transação.
 
 Ferramenta: Jest com mocks manuais para Firebase SDK.
 

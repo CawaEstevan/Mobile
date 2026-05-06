@@ -10,11 +10,11 @@ Funcionalidades cobertas:
 - Acesso ao usuário logado em qualquer parte do app (contexto).
 
 ## 2. Requisitos técnicos
-- **SDK:** Firebase Auth.
-- **Linguagem:** TypeScript.
-- **Framework:** React Native.
-- **Padrão arquitetural:** Context API do React para prover dados do usuário logado.
-- **Configuração:** Arquivo `firebase.ts` com inicialização do app Firebase e exportação das instâncias `auth` e `db`.
+- SDK: Firebase Auth.
+- Linguagem: TypeScript.
+- Framework: React Native.
+- Padrão arquitetural: Context API do React para prover dados do usuário logado.
+- Configuração: Arquivo `firebase.ts` com inicialização do app Firebase e exportação das instâncias `auth` e `db`.
 
 ## 3. Contrato da API consumido
 Conforme `04_contratos_de_api.md`, seção 4.1:
@@ -30,11 +30,11 @@ Além do contrato explícito, usaremos:
 - `signOut` para logout.
 
 ## 4. O que deve ser gerado
-- **firebase.ts:** Inicialização do Firebase (com variáveis de ambiente).
-- **authService.ts:** Funções `login(email, password)`, `logout()`, `onAuthChange(callback)`.
-- **AuthContext.tsx:** Contexto React com estado de usuário, loading, funções de login/logout.
-- **useAuth.ts:** Hook para consumir o contexto.
-- **types/auth.ts:** Tipos `User` e `AuthState`.
+- firebase.ts: Inicialização do Firebase (com variáveis de ambiente).
+- authService.ts: Funções `login(email, password)`, `logout()`, `onAuthChange(callback)`.
+- AuthContext.tsx: Contexto React com estado de usuário, loading, funções de login/logout.
+- useAuth.ts: Hook para consumir o contexto.
+- types/auth.ts: Tipos `User` e `AuthState`.
 
 ## 5. Testes obrigatórios
 - Teste unitário do `authService` mockando Firebase Auth.

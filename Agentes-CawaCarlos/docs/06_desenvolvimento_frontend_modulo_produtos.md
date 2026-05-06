@@ -7,11 +7,11 @@ Tela de listagem de produtos com destaque visual para itens em baixo estoque. Te
 Seções 4.2.1 a 4.2.5 do `04_contratos_de_api.md` e módulo back-end de Produtos.
 
 ## 3. O que deve ser gerado
-- **ProductListScreen.tsx:** Lista com indicador de baixo estoque (cor, ícone).
-- **ProductFormScreen.tsx:** Formulário de criação/edição.
-- **ProductDetailScreen.tsx:** Detalhes do produto.
-- **Componentes:** ProductCard, StockIndicator, EmptyState.
-- **Integração:** Hooks `useProducts`, `useProduct`.
+- ProductListScreen.tsx: Lista com indicador de baixo estoque (cor, ícone).
+- ProductFormScreen.tsx: Formulário de criação/edição.
+- ProductDetailScreen.tsx: Detalhes do produto.
+- Componentes: ProductCard, StockIndicator, EmptyState.
+- Integração: Hooks `useProducts`, `useProduct`.
 
 ## 4. Experiência esperada
 - Lista carrega com indicador de loading.

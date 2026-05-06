@@ -7,9 +7,9 @@ Tela de login onde o operador informa e-mail e senha. Deve cobrir estados de car
 Seção 4.1 do `04_contratos_de_api.md` e módulo back-end de Autenticação.
 
 ## 3. O que deve ser gerado
-- **LoginScreen.tsx:** Tela com campos de e-mail, senha, botão de login.
-- **Componentes:** Input com validação, botão com estado de loading, mensagem de erro.
-- **Integração:** Usar `useAuth` hook do módulo de Autenticação.
+- LoginScreen.tsx: Tela com campos de e-mail, senha, botão de login.
+- Componentes: Input com validação, botão com estado de loading, mensagem de erro.
+- Integração: Usar `useAuth` hook do módulo de Autenticação.
 
 ## 4. Experiência esperada
 - Campos validados localmente (e-mail formato, senha preenchida).

@@ -9,9 +9,9 @@ Como o Firebase Firestore é um banco de dados NoSQL acessado diretamente pelo c
 - Versão única `/v1` implícita no escopo inicial. Não há versionamento de caminho no Firestore.
 
 ## 3. Autenticação e autorização
-- **Provedor:** Firebase Auth, método `signInWithEmailAndPassword`.
-- **Controle de acesso:** Apenas usuários autenticados podem ler/escrever. Regras no Firebase Console validam `request.auth != null`.
-- **Token:** Gerenciado automaticamente pelo SDK do Firebase.
+- Provedor: Firebase Auth, método `signInWithEmailAndPassword`.
+- Controle de acesso: Apenas usuários autenticados podem ler/escrever. Regras no Firebase Console validam `request.auth != null`.
+- Token: Gerenciado automaticamente pelo SDK do Firebase.
 
 ## 4. Endpoints
 
