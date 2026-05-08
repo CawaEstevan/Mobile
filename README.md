@@ -33,3 +33,6 @@ npx expo install react-native-gesture-handler
 
 # gps
 # a
+
+# cd /workspaces/Mobile/aulaSpring/projeto
+# ./mvnw spring-boot:run
