@@ -3,16 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Detalhes da Produto</title>
-    <!-- link para seu CSS -->
+    <title>Detalhes do Produto</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
     <!-- navbar -->
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
     <main class="main-content">
-        <h1>Detalhes da Produto</h1>
+        <h1>Detalhes do Produto</h1>
 
         <table>
             <thead>
@@ -29,7 +28,7 @@
                     <td th:text="${produto.id}"></td>
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.quantidade}"></td>
-                    <td th:text="'R$'+${produto.valor}"></td>
+                    <td th:text="${produto.valor != null ? #numbers.formatCurrency(produto.valor) : 'R$ 0,00'}">R$ 0,00</td>
                     <td>
                         <form th:action="@{/produtos/{id}/excluir(id=${produto.id})}" method="post">
                             <button type="submit" class="botao">Excluir</button>

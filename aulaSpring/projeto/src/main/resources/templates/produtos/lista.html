@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
     <!-- conteúdo principal -->
     <main class="main-content">
@@ -28,7 +28,7 @@
                     <td th:text="${produto.id}"></td>
                     <td th:text="${produto.nome}"></td>
                     <td th:text="${produto.quantidade}"></td>
-                    <td th:text="'R$'+${produto.valor}"></td>
+                    <td th:text="${produto.valor != null ? #numbers.formatCurrency(produto.valor) : 'R$ 0,00'}">R$ 0,00</td>
                     <td>
                         <a th:href="@{/produtos/{id}(id=${produto.id})}" class="botao">Detalhes</a>
                     </td>
