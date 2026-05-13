@@ -8,7 +8,8 @@ Content-Type: application/json
   "nome": "Notebook",
   "quantidade": 10,
   "valor": 3899.99
-}
+} 
+
 
 ### Listar todos os produtos
 GET {{ base_url }}/api/produtos
@@ -27,6 +28,8 @@ Content-Type: application/json
   "quantidade": 5,
   "valor": 4299.99
 }
+
+
 
 ### Remover produto (DELETE)
 DELETE {{ base_url }}/api/produtos/1
