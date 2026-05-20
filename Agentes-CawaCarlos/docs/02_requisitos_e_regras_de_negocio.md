@@ -10,18 +10,18 @@
 - RF7 – Alerta de baixo estoque:** Ao abrir o app, destacar produtos com quantidade ≤ quantidade mínima.
 
 ## 2. Requisitos não funcionais
-- RNF1 – Desempenho:** Listagem de produtos deve carregar em menos de 2 segundos para até 1000 produtos.
-- RNF2 – Segurança:** Apenas usuários autenticados podem ler ou escrever dados. Regras do Firestore devem validar autenticação e permissão.
-- RNF3 – Disponibilidade:** O app depende da disponibilidade do Firebase. Não há modo offline.
-- RNF4 – Manutenibilidade:** Código deve seguir boas práticas de TypeScript, componentes reutilizáveis, separação de serviços e hooks.
-- RNF5 – Usabilidade:** Interface simples, mínimo de telas, fluxo linear.
+- RNF1 – Desempenho: Listagem de produtos deve carregar em menos de 2 segundos para até 1000 produtos.
+- RNF2 – Segurança: Apenas usuários autenticados podem ler ou escrever dados. Regras do Firestore devem validar autenticação e permissão.
+- RNF3 – Disponibilidade: O app depende da disponibilidade do Firebase. Não há modo offline.
+- RNF4 – Manutenibilidade: Código deve seguir boas práticas de TypeScript, componentes reutilizáveis, separação de serviços e hooks.
+- RNF5 – Usabilidade: Interface simples, mínimo de telas, fluxo linear.
 - RNF6 – Arquitetura interna: O código deve seguir os princípios de Clean Architecture com MVVM na camada de apresentação, organizado em features (auth, products, movements), cada uma com camadas de presentation, domain e data. A camada de infraestrutura concentra acesso ao Firebase e recursos nativos.
 
 ## 3. Regras de negócio
-- RN1 – Quantidade não pode ficar negativa:** Tentar retirar mais do que existe deve gerar erro e impedir a operação.
-- RN2 – Quantidade mínima padrão:** Se não informada no cadastro, assumir zero (sem alerta).
-- RN3 – Motivo obrigatório em movimentações:** Toda entrada ou saída deve ter um texto de motivo.
-- RN4 – Produto sem movimentações pode ser excluído:** Apenas se não houver histórico de movimentações vinculado.
+- RN1 – Quantidade não pode ficar negativa: Tentar retirar mais do que existe deve gerar erro e impedir a operação.
+- RN2 – Quantidade mínima padrão: Se não informada no cadastro, assumir zero (sem alerta).
+- RN3 – Motivo obrigatório em movimentações: Toda entrada ou saída deve ter um texto de motivo.
+- RN4 – Produto sem movimentações pode ser excluído: Apenas se não houver histórico de movimentações vinculado.
 
 ## 4. Casos de uso prioritários
 1. Fazer login.
