@@ -1,10 +1,10 @@
 # Visão geral do sistema
 
 ## 1. Objetivo do projeto
-Desenvolver um aplicativo mobile simples de controle de estoque, que permita cadastrar produtos, registrar entradas e saídas, e alertar quando um produto atingir nível de estoque baixo.
+Desenvolver um aplicativo mobile simples de controle de estoque de material escolar, que permita cadastrar produtos (ex: cadernos, lápis, borrachas, mochilas), registrar entradas e saídas, e alertar quando um produto atingir nível de estoque baixo.
 
 ## 2. Problema que o sistema resolve
-Pequenos negócios ou almoxarifados perdem vendas ou atrasam operações por não saberem que um produto está acabando. Este sistema oferece uma visão rápida do estoque atual e avisa ativamente quando é hora de repor.
+Pequenas papelarias, livrarias ou almoxarifados escolares perdem vendas ou atrasam a reposição por não saberem que um item está acabando. Este sistema oferece uma visão rápida do estoque atual de materiais escolares e avisa ativamente quando é hora de repor.
 
 ## 3. Atores envolvidos
 - Operador de estoque: único perfil. Cadastra produtos, registra movimentações e visualiza alertas.

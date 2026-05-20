@@ -21,7 +21,7 @@
 - RN1 – Quantidade não pode ficar negativa: Tentar retirar mais do que existe deve gerar erro e impedir a operação.
 - RN2 – Quantidade mínima padrão: Se não informada no cadastro, assumir zero (sem alerta).
 - RN3 – Motivo obrigatório em movimentações: Toda entrada ou saída deve ter um texto de motivo.
-- RN4 – Produto sem movimentações pode ser excluído: Apenas se não houver histórico de movimentações vinculado.
+- RN4 – Produto sem movimentações pode ser excluído:** Apenas se não houver histórico de movimentações vinculado.
 
 ## 4. Casos de uso prioritários
 1. Fazer login.
@@ -42,4 +42,4 @@
 - RF7 depende de RF3 e RN1.
 
 ## 7. Pedido para o Agente Arquiteto
-Organize estes requisitos, identifique inconsistências e indique lacunas que precisam ser decididas antes do desenvolvimento.
+A arquitetura foi definida como Clean Architecture + MVVM, conforme documento de arquitetura mobile fornecido. As estruturas de pastas e responsabilidades por camada estão detalhadas nos arquivos 05 e 06. Os requisitos acima foram organizados e estão consistentes com o escopo definido em 01.
