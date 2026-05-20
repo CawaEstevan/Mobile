@@ -6,7 +6,7 @@
 |------|--------|--------|----------|-----------|--------|
 | 2026-04-30-1 | Arquiteto | v1.0 | 01, 02, 03, proposta 09 | Cawa e Carlos | Aprovado |
 | 2026-04-30-2 | Designer de API | v1.0 | 04 | Cawa e Carlos | Aprovado |
-| 2026-04-30-3 | Arquiteto (documentação) | v1.0 | 05 (3 módulos back), 06 (3 módulos front), 07, 08 | Aguardando validação | Pendente |
+| 2026-04-30-3 | Arquiteto (documentação) | v1.0 | 05 (3 módulos back), 06 (3 módulos front), 07, 08 | Aprovado |
 
 ## 2. Status por módulo
 
