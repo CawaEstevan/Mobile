@@ -2,12 +2,12 @@
 
 ## 1. Requisitos funcionais
 - RF1 – Autenticação: O operador faz login com e-mail e senha (Firebase Auth).
-- RF2 – Cadastro de produto:** Criar produto informando nome, SKU (opcional), quantidade inicial e quantidade mínima para alerta.
-- RF3 – Listagem de produtos:** Exibir todos os produtos com nome, SKU, quantidade atual e indicador visual (ex: cor vermelha) se quantidade ≤ quantidade mínima.
-- RF4 – Registro de entrada:** Aumentar a quantidade de um produto informando valor e motivo (ex: "compra", "devolução").
-- RF5 – Registro de saída:** Diminuir a quantidade de um produto informando valor e motivo (ex: "venda", "uso interno").
-- RF6 – Histórico de movimentações:** Exibir as últimas movimentações de cada produto (data, tipo, quantidade, motivo).
-- RF7 – Alerta de baixo estoque:** Ao abrir o app, destacar produtos com quantidade ≤ quantidade mínima.
+- RF2 – Cadastro de produto: Criar produto informando nome, SKU (opcional), quantidade inicial e quantidade mínima para alerta.
+- RF3 – Listagem de produtos: Exibir todos os produtos com nome, SKU, quantidade atual e indicador visual (ex: cor vermelha) se quantidade ≤ quantidade mínima.
+- RF4 – Registro de entrada: Aumentar a quantidade de um produto informando valor e motivo (ex: "compra", "devolução").
+- RF5 – Registro de saída: Diminuir a quantidade de um produto informando valor e motivo (ex: "venda", "uso interno").
+- RF6 – Histórico de movimentações: Exibir as últimas movimentações de cada produto (data, tipo, quantidade, motivo).
+- RF7 – Alerta de baixo estoque: Ao abrir o app, destacar produtos com quantidade ≤ quantidade mínima.
 
 ## 2. Requisitos não funcionais
 - RNF1 – Desempenho: Listagem de produtos deve carregar em menos de 2 segundos para até 1000 produtos.
