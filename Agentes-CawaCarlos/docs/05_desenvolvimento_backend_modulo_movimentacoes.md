@@ -16,11 +16,47 @@ Conforme `04_contratos_de_api.md`, seções 4.3.1 a 4.3.3.
 Operações: `listMovements(productId)`, `addEntry(productId, amount, reason)`, `addExit(productId, amount, reason)`.
 
 ## 4. O que deve ser gerado
-- movementService.ts: Funções de listagem, entrada e saída com transação.
-- useMovements.ts: Hook para histórico de movimentações.
-- useStockMovement.ts: Hook para registrar entrada/saída com feedback.
-- types/movement.ts: Interface `Movement` conforme contrato.
-- Validações: amount > 0, reason não vazio, estoque suficiente para saída.
+
+### 4.1 Arquitetura e padrão
+Clean Architecture + MVVM. Feature `movements` com camadas presentation, domain, data. Transações Firestore encapsuladas na camada data.
+
+### 4.2 Estrutura de pastas esperada
+src/features/movements/
+├── presentation/
+│ ├── MovementHistoryScreen.tsx
+│ ├── MovementHistoryViewModel.ts
+│ └── components/
+│ ├── MovementItem.tsx
+│ └── MovementFormModal.tsx
+├── domain/
+│ ├── entities/
+│ │ └── Movement.ts
+│ ├── usecases/
+│ │ ├── GetMovementsUseCase.ts
+│ │ ├── AddEntryUseCase.ts
+│ │ └── AddExitUseCase.ts
+│ └── repositories/
+│ └── MovementRepository.ts (interface)
+└── data/
+├── repositories/
+│ └── FirestoreMovementRepository.ts (implementação)
+├── datasources/
+│ └── FirestoreMovementDataSource.ts
+└── dtos/
+└── MovementDTO.ts
+
+text
+
+### 4.3 Responsabilidades
+- domain/entities/Movement.ts: Interface com `id`, `productId`, `type`, `amount`, `reason`, `createdAt`.
+- domain/usecases/: Casos de uso para listar movimentações e registrar entrada/saída.
+- domain/repositories/MovementRepository.ts: Interface com `getByProductId`, `addEntry`, `addExit`.
+- data/repositories/FirestoreMovementRepository.ts: Implementação com transação Firestore (`runTransaction`) para garantir atomicidade.
+- data/datasources/FirestoreMovementDataSource.ts: Operações diretas no Firestore para coleção `movements`.
+- data/dtos/MovementDTO.ts: Conversão entre documento Firestore e entidade Movement.
+- presentation/MovementHistoryViewModel.ts: Estado reativo do histórico e ações de entrada/saída.
+- presentation/MovementHistoryScreen.tsx: Observa ViewModel.
+- presentation/components/MovementFormModal.tsx: Modal com campos de quantidade e motivo.
 
 ## 5. Testes obrigatórios
 - Teste unitário de cada função mockando Firestore.

@@ -30,11 +30,49 @@ Além do contrato explícito, usaremos:
 - `signOut` para logout.
 
 ## 4. O que deve ser gerado
-- firebase.ts: Inicialização do Firebase (com variáveis de ambiente).
-- authService.ts: Funções `login(email, password)`, `logout()`, `onAuthChange(callback)`.
-- AuthContext.tsx: Contexto React com estado de usuário, loading, funções de login/logout.
-- useAuth.ts: Hook para consumir o contexto.
-- types/auth.ts: Tipos `User` e `AuthState`.
+
+### 4.1 Arquitetura e padrão
+O módulo segue Clean Architecture + MVVM. Cada feature tem três camadas: presentation, domain, data. A infraestrutura (Firebase) fica isolada em pasta própria.
+
+### 4.2 Estrutura de pastas esperada
+src/
+├── features/
+│ └── auth/
+│ ├── presentation/
+│ │ ├── LoginScreen.tsx
+│ │ ├── AuthViewModel.ts
+│ │ └── components/
+│ ├── domain/
+│ │ ├── entities/
+│ │ │ └── User.ts
+│ │ ├── usecases/
+│ │ │ ├── LoginUseCase.ts
+│ │ │ └── LogoutUseCase.ts
+│ │ └── repositories/
+│ │ └── AuthRepository.ts (interface)
+│ └── data/
+│ ├── repositories/
+│ │ └── FirebaseAuthRepository.ts (implementação)
+│ └── datasources/
+│ └── FirebaseAuthDataSource.ts
+├── infrastructure/
+│ └── firebase/
+│ ├── config.ts
+│ └── auth.ts
+
+text
+
+### 4.3 O que cada arquivo deve conter
+- domain/entities/User.ts: Interface com `uid`, `email`.
+- domain/usecases/LoginUseCase.ts: Executa login chamando AuthRepository, retorna User.
+- domain/usecases/LogoutUseCase.ts: Executa logout.
+- domain/repositories/AuthRepository.ts: Interface com métodos `login`, `logout`, `getCurrentUser`.
+- data/repositories/FirebaseAuthRepository.ts: Implementa AuthRepository usando Firebase Auth.
+- data/datasources/FirebaseAuthDataSource.ts: Wrapper direto sobre `signInWithEmailAndPassword`, `signOut`, `onAuthStateChanged`.
+- presentation/AuthViewModel.ts: MVVM — estado reativo (`user`, `loading`, `error`), ações `login()`, `logout()` que chamam UseCases.
+- presentation/LoginScreen.tsx: Observa AuthViewModel, renderiza formulário.
+- infrastructure/firebase/config.ts: Inicialização do app Firebase.
+- infrastructure/firebase/auth.ts: Exporta instância `auth`.
 
 ## 5. Testes obrigatórios
 - Teste unitário do `authService` mockando Firebase Auth.

@@ -7,6 +7,10 @@ Definir a estratégia de verificação para cada etapa do projeto, garantindo qu
 - Verificar se a modelagem de dados (`03`) atende aos requisitos de consulta.
 - Verificar se os contratos (`04`) cobrem todos os casos de uso descritos em `02`.
 - Verificar se as regras de segurança do Firestore estão documentadas.
+- Verificar se cada feature segue a estrutura Clean Architecture + MVVM.
+- Verificar se a camada de domínio não importa Firebase diretamente.
+- Verificar se a camada de apresentação não acessa dados diretamente.
+- Verificar se ViewModels não referenciam componentes de UI.
 
 ## 3. Testes de back-end
 

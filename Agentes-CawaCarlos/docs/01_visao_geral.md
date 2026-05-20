@@ -30,6 +30,8 @@ Fora desta fase:
 - Plataforma inicial: Android e iOS (via React Native).
 - Ambiente de desenvolvimento: VS Code, Expo ou React Native CLI (a decidir pelo Agente Back-end/Front-end, sem preferência do Arquiteto).
 - Sem servidor próprio: toda lógica de negócio reside no cliente, respeitando regras de segurança do Firestore.
+- Arquitetura interna: Clean Architecture com MVVM na camada de apresentação, organizada em features (auth, products, movements).
+- Estratégia de IA: Documentação gerada com DeepSeek (agentes Arquiteto e Designer de API); implementação será feita com GitHub Copilot Student (agentes Back-end, Front-end, QA e Documentador), conforme seção 11.8 do guia.
 
 ## 6. Premissas
 - O app é monousuário por dispositivo, mas os dados são compartilhados entre todos os operadores via Firestore (leitura/escrita compartilhada).
@@ -42,4 +44,4 @@ Fora desta fase:
 3. Falta de notificação push pode reduzir a utilidade do alerta – tratado como pendência futura.
 
 ## 8. Pedido para o Agente Arquiteto
-Atue como arquiteto de software. Analise o cenário e proponha a melhor estrutura inicial, considerando arquitetura, módulos, dependências e riscos.
+A arquitetura foi definida como Clean Architecture + MVVM, conforme documento de arquitetura mobile fornecido. As estruturas de pastas e responsabilidades por camada estão detalhadas nos arquivos 05 e 06.
