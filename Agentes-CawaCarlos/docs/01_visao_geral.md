@@ -30,7 +30,7 @@ Fora desta fase:
 - Plataforma inicial: Android e iOS (via React Native).
 - Ambiente de desenvolvimento: VS Code, Expo ou React Native CLI (a decidir pelo Agente Back-end/Front-end, sem preferência do Arquiteto).
 - Sem servidor próprio: toda lógica de negócio reside no cliente, respeitando regras de segurança do Firestore.
-- Arquitetura interna: Clean Architecture com MVVM na camada de apresentação, organizada em features (auth, products, movements).
+- Arquitetura interna: Baseada em componentes reutilizáveis, organizada por features, com serviços de dados e hooks para estado.
 
 
 ## 6. Premissas

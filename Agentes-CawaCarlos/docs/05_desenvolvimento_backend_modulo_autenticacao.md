@@ -7,14 +7,13 @@ Funcionalidades cobertas:
 - Login com e-mail e senha.
 - Verificação de sessão ativa ao abrir o app.
 - Logout.
-- Acesso ao usuário logado em qualquer parte do app (contexto).
+- Acesso ao usuário logado em qualquer parte do app (hook).
 
 ## 2. Requisitos técnicos
 - SDK: Firebase Auth.
 - Linguagem: TypeScript.
-- Framework: React Native.
-- Padrão arquitetural: Context API do React para prover dados do usuário logado.
-- Configuração: Arquivo `firebase.ts` com inicialização do app Firebase e exportação das instâncias `auth` e `db`.
+- Framework: React Native com Expo.
+- Padrão: Arquitetura baseada em componentes — serviços para acesso ao Firebase, hooks para estado e ações.
 
 ## 3. Contrato da API consumido
 Conforme `04_contratos_de_api.md`, seção 4.1:
@@ -32,60 +31,43 @@ Além do contrato explícito, usaremos:
 ## 4. O que deve ser gerado
 
 ### 4.1 Arquitetura e padrão
-O módulo segue Clean Architecture + MVVM. Cada feature tem três camadas: presentation, domain, data. A infraestrutura (Firebase) fica isolada em pasta própria.
+Arquitetura baseada em componentes. O código é organizado em features, cada uma com componentes de UI, serviços de acesso a dados e hooks para estado. Não há camadas rígidas — a lógica fica em serviços e hooks, e a UI em componentes.
 
 ### 4.2 Estrutura de pastas esperada
+
 src/
+├── config/
+│ └── firebase.ts
 ├── features/
 │ └── auth/
-│ ├── presentation/
-│ │ ├── LoginScreen.tsx
-│ │ ├── AuthViewModel.ts
-│ │ └── components/
-│ ├── domain/
-│ │ ├── entities/
-│ │ │ └── User.ts
-│ │ ├── usecases/
-│ │ │ ├── LoginUseCase.ts
-│ │ │ └── LogoutUseCase.ts
-│ │ └── repositories/
-│ │ └── AuthRepository.ts (interface)
-│ └── data/
-│ ├── repositories/
-│ │ └── FirebaseAuthRepository.ts (implementação)
-│ └── datasources/
-│ └── FirebaseAuthDataSource.ts
-├── infrastructure/
-│ └── firebase/
-│ ├── config.ts
+│ ├── components/
+│ │ └── LoginScreen.tsx
+│ ├── services/
+│ │ └── authService.ts
+│ ├── hooks/
+│ │ └── useAuth.ts
+│ └── types/
 │ └── auth.ts
 
-text
 
 ### 4.3 O que cada arquivo deve conter
-- domain/entities/User.ts: Interface com `uid`, `email`.
-- domain/usecases/LoginUseCase.ts: Executa login chamando AuthRepository, retorna User.
-- domain/usecases/LogoutUseCase.ts: Executa logout.
-- domain/repositories/AuthRepository.ts: Interface com métodos `login`, `logout`, `getCurrentUser`.
-- data/repositories/FirebaseAuthRepository.ts: Implementa AuthRepository usando Firebase Auth.
-- data/datasources/FirebaseAuthDataSource.ts: Wrapper direto sobre `signInWithEmailAndPassword`, `signOut`, `onAuthStateChanged`.
-- presentation/AuthViewModel.ts: MVVM — estado reativo (`user`, `loading`, `error`), ações `login()`, `logout()` que chamam UseCases.
-- presentation/LoginScreen.tsx: Observa AuthViewModel, renderiza formulário.
-- infrastructure/firebase/config.ts: Inicialização do app Firebase.
-- infrastructure/firebase/auth.ts: Exporta instância `auth`.
+- config/firebase.ts: Inicialização do Firebase (com variáveis de ambiente). Exportar instâncias `auth` e `db`.
+- features/auth/services/authService.ts:** Funções `login(email, password)`, `logout()`, `onAuthChange(callback)` encapsulando Firebase Auth.
+- features/auth/hooks/useAuth.ts: Hook que usa `authService` e `onAuthStateChanged`. Gerencia estado reativo (`user`, `loading`, `error`). Provê funções `login` e `logout`.
+- features/auth/components/LoginScreen.tsx: Tela de login que usa `useAuth`. Campos de e-mail e senha, botão de login, tratamento de erros.
+- features/auth/types/auth.ts:** Tipos `User` (uid, email) e `AuthState`.
 
 ## 5. Testes obrigatórios
 - Teste unitário do `authService` mockando Firebase Auth.
-- Teste unitário do `AuthContext` verificando estados de loading, autenticado, não autenticado.
+- Teste do hook `useAuth`: verificar estados de loading, autenticado, não autenticado.
 - Teste de integração manual com credenciais reais de teste.
-- Cobertura de 100% das funções públicas.
 
 ## 6. Critérios de aceite
-1. Sessão ativa redireciona direto para tela principal.
+1. Sessão ativa redireciona para tela principal.
 2. Login válido redireciona para tela principal.
 3. Erro de login exibe mensagem clara conforme contrato.
 4. Logout volta para tela de login e bloqueia acesso a dados.
-5. Contexto de autenticação disponível em qualquer componente.
+5. Hook `useAuth` acessível em qualquer componente.
 
 ## 7. Pedido para o Agente Back-end
-Gere o código completo do módulo, junto com os testes, seguindo estritamente o contrato definido em `04_contratos_de_api.md`.
+Gere o código completo do módulo, junto com os testes, seguindo estritamente o contrato definido em `04_contratos_de_api.md` e a estrutura baseada em componentes.

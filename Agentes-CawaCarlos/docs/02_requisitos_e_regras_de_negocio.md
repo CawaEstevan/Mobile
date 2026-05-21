@@ -15,7 +15,7 @@
 - RNF3 – Disponibilidade: O app depende da disponibilidade do Firebase. Não há modo offline.
 - RNF4 – Manutenibilidade: Código deve seguir boas práticas de TypeScript, componentes reutilizáveis, separação de serviços e hooks.
 - RNF5 – Usabilidade: Interface simples, mínimo de telas, fluxo linear.
-- RNF6 – Arquitetura interna: O código deve seguir os princípios de Clean Architecture com MVVM na camada de apresentação, organizado em features (auth, products, movements), cada uma com camadas de presentation, domain e data. A camada de infraestrutura concentra acesso ao Firebase e recursos nativos.
+- RNF6 – Arquitetura interna: O código deve seguir uma arquitetura baseada em componentes reutilizáveis, com separação clara entre componentes de UI, serviços de acesso a dados e hooks para gerenciamento de estado. A estrutura será organizada por funcionalidade (features) com pastas para componentes, serviços e tipos.
 
 ## 3. Regras de negócio
 - RN1 – Quantidade não pode ficar negativa: Tentar retirar mais do que existe deve gerar erro e impedir a operação.

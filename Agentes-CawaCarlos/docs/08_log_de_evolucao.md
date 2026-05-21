@@ -28,7 +28,7 @@
 | Firestore como BaaS | Restrição do projeto (React Native + Firebase) | Arquiteto | Cawa e Carlos | 2026-04-30 |
 | Transações para entrada/saída | Garantir atomicidade e evitar inconsistência de estoque | Designer de API | Cawa e Carlos | 2026-04-30 |
 | Divisão de trabalho: Cawa (back), Carlos (front) | Otimizar fluxo multiagente | Arquiteto | Cawa e Carlos | 2026-04-30 |
-| Clean Architecture + MVVM | Melhor testabilidade, separação de responsabilidades, adequado ao porte do projeto | Arquiteto | Cawa e Carlos | 2026-05-20 |
+| Arquitetura baseada em componentes | Simplicidade, alinhamento com o padrão React Native, menor overhead | Arquiteto | Cawa e Carlos | 2026-05-20 |
 
 ## 5. Erros encontrados e correções
 Nenhum até o momento.

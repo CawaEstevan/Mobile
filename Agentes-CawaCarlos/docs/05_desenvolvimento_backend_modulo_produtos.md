@@ -6,8 +6,8 @@ Implementar o CRUD completo de produtos no Firestore, conforme contrato `04`. O 
 ## 2. Requisitos técnicos
 - Banco: Firestore (coleção `products`).
 - Linguagem: TypeScript.
-- Framework: React Native.
-- Padrão: Serviço isolado para operações de banco, hooks para consumo nos componentes.
+- Framework: React Native com Expo.
+- Padrão: Arquitetura baseada em componentes — serviços para acesso ao Firestore, hooks para estado e ações.
 - Dependência: Módulo de Autenticação (usuário precisa estar logado).
 
 ## 3. Contrato da API consumido
@@ -18,61 +18,49 @@ Operações: `listAll()`, `getById(id)`, `create(data)`, `update(id, data)`, `de
 ## 4. O que deve ser gerado
 
 ### 4.1 Arquitetura e padrão
-Clean Architecture + MVVM. Feature `products` com camadas presentation, domain, data. Acesso ao Firestore encapsulado na camada data.
+Arquitetura baseada em componentes. Cada feature contém serviços (acesso a dados), hooks (estado e ações) e componentes (UI). Sem camadas rígidas.
 
 ### 4.2 Estrutura de pastas esperada
+
 src/features/products/
-├── presentation/
+├── components/
 │ ├── ProductListScreen.tsx
 │ ├── ProductFormScreen.tsx
 │ ├── ProductDetailScreen.tsx
-│ ├── ProductListViewModel.ts
-│ └── components/
 │ ├── ProductCard.tsx
 │ └── StockIndicator.tsx
-├── domain/
-│ ├── entities/
-│ │ └── Product.ts
-│ ├── usecases/
-│ │ ├── GetProductsUseCase.ts
-│ │ ├── CreateProductUseCase.ts
-│ │ ├── UpdateProductUseCase.ts
-│ │ └── DeleteProductUseCase.ts
-│ └── repositories/
-│ └── ProductRepository.ts (interface)
-└── data/
-├── repositories/
-│ └── FirestoreProductRepository.ts (implementação)
-├── datasources/
-│ └── FirestoreProductDataSource.ts
-└── dtos/
-└── ProductDTO.ts
+├── services/
+│ └── productService.ts
+├── hooks/
+│ ├── useProducts.ts
+│ └── useProductForm.ts
+└── types/
+└── product.ts
 
-text
 
-### 4.3 Responsabilidades
-- domain/entities/Product.ts: Interface com `id`, `name`, `sku`, `quantity`, `minQuantity`.
-- domain/usecases/: Cada caso de uso orquestra uma operação (listar, criar, editar, excluir) via ProductRepository.
-- domain/repositories/ProductRepository.ts: Interface assíncrona para CRUD.
-- data/repositories/FirestoreProductRepository.ts: Implementa ProductRepository usando Firestore.
-- data/datasources/FirestoreProductDataSource.ts: Operações diretas no Firestore (`getDocs`, `addDoc`, `updateDoc`, `deleteDoc`).
-- data/dtos/ProductDTO.ts: Conversão entre documento Firestore e entidade Product.
-- presentation/ProductListViewModel.ts: Estado reativo da lista, ações de carregar e excluir.
-- presentation/ProductFormViewModel.ts: Estado do formulário, validações, ação de salvar.
-- presentation/Screen.tsx: Observam ViewModels, renderizam UI.
+### 4.3 O que cada arquivo deve conter
+- types/product.ts: Interface `Product` (id, name, sku, quantity, minQuantity, createdAt).
+- services/productService.ts: Funções CRUD (`getProducts`, `getProductById`, `createProduct`, `updateProduct`, `deleteProduct`) encapsulando Firestore. Validações de regras de negócio (nome obrigatório, quantidade ≥ 0, verificação de movimentações antes de excluir).
+- hooks/useProducts.ts: Hook que gerencia estado da lista (`products`, `loading`, `error`). Funções `loadProducts()` e `deleteProduct(id)` que chamam `productService`.
+- hooks/useProductForm.ts: Hook para formulário de criação/edição. Estado dos campos, validações, função `save()`.
+- components/ProductListScreen.tsx: Lista com `useProducts`. Exibe `ProductCard` para cada item, com `StockIndicator` se baixo estoque.
+- components/ProductFormScreen.tsx: Formulário que usa `useProductForm`. Campos de nome, SKU, quantidade, mínima.
+- components/ProductDetailScreen.tsx: Detalhes do produto, botões editar/excluir.
+- components/ProductCard.tsx: Card reutilizável com nome, SKU, quantidade.
+- components/StockIndicator.tsx: Indicador visual (cor/ícone) para baixo estoque.
 
 ## 5. Testes obrigatórios
-- Teste unitário de cada função do `productService` mockando Firestore.
-- Teste de validação de campos obrigatórios e regras (quantidade não negativa, nome vazio).
+- Teste unitário do `productService` mockando Firestore.
+- Teste dos hooks `useProducts` e `useProductForm`: verificar estados de loading, sucesso, erro.
+- Teste de validação de campos obrigatórios e regras de negócio.
 - Teste de integração manual criando, listando, editando e excluindo produto real.
-- Cobertura de 100% das funções públicas.
 
 ## 6. Critérios de aceite
 1. Produto criado aparece imediatamente na lista.
 2. Nome vazio gera erro `app/invalid-product-name`.
 3. Quantidade negativa gera erro `app/invalid-quantity`.
-4. Produto com movimentações não pode ser excluído (erro `app/product-has-movements`).
+4. Produto com movimentações não pode ser excluído.
 5. Quantidade inicial e mínima aceitam zero.
 
 ## 7. Pedido para o Agente Back-end
-Gere o código completo do módulo, junto com os testes, seguindo estritamente o contrato.
+Gere o código completo do módulo, junto com os testes, seguindo estritamente o contrato e a estrutura baseada em componentes.
