@@ -52,7 +52,7 @@ src/
 
 ### 4.3 O que cada arquivo deve conter
 - config/firebase.ts: Inicialização do Firebase (com variáveis de ambiente). Exportar instâncias `auth` e `db`.
-- features/auth/services/authService.ts:** Funções `login(email, password)`, `logout()`, `onAuthChange(callback)` encapsulando Firebase Auth.
+- features/auth/services/authService.ts: Funções `login(email, password)`, `logout()`, `onAuthChange(callback)` encapsulando Firebase Auth.
 - features/auth/hooks/useAuth.ts: Hook que usa `authService` e `onAuthStateChanged`. Gerencia estado reativo (`user`, `loading`, `error`). Provê funções `login` e `logout`.
 - features/auth/components/LoginScreen.tsx: Tela de login que usa `useAuth`. Campos de e-mail e senha, botão de login, tratamento de erros.
 - features/auth/types/auth.ts:** Tipos `User` (uid, email) e `AuthState`.

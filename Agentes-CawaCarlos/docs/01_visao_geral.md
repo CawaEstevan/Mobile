@@ -44,4 +44,4 @@ Fora desta fase:
 3. Falta de notificação push pode reduzir a utilidade do alerta – tratado como pendência futura.
 
 ## 8. Pedido para o Agente Arquiteto
-A arquitetura foi definida como Clean Architecture + MVVM, conforme documento de arquitetura mobile fornecido. As estruturas de pastas e responsabilidades por camada estão detalhadas nos arquivos 05 e 06.
+A arquitetura foi definida como baseada em componentes reutilizáveis, organizada por features com serviços, hooks e componentes de UI. As estruturas de pastas e responsabilidades estão detalhadas nos arquivos 05 e 06.

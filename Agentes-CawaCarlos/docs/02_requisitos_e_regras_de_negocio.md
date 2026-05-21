@@ -42,4 +42,4 @@
 - RF7 depende de RF3 e RN1.
 
 ## 7. Pedido para o Agente Arquiteto
-A arquitetura foi definida como Clean Architecture + MVVM, conforme documento de arquitetura mobile fornecido. As estruturas de pastas e responsabilidades por camada estão detalhadas nos arquivos 05 e 06. Os requisitos acima foram organizados e estão consistentes com o escopo definido em 01.
+A arquitetura foi definida como baseada em componentes reutilizáveis, com separação clara entre serviços, hooks e componentes de UI, conforme documentado nos arquivos 05 e 06. Os requisitos acima estão organizados e consistentes com o escopo definido em 01.
